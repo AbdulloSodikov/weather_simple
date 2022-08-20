@@ -24,7 +24,8 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="8dp"
+        app:cardElevation="0dp"
         android:backgroundTint="@color/newColor"
         app:cardCornerRadius="13dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -175,24 +176,22 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
+        style="@style/MyTabLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@color/newColor"
+        android:background="@color/newColor"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:tabTextColor="@color/white">
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hours" />
+            android:layout_height="wrap_content" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Days" />
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.tabs.TabLayout>
 

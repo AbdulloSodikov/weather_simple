@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayoutMediator
+import sodikov.weather_simple.adapters.ViewPagerAdapter
 import sodikov.weather_simple.databinding.FragmentMainBinding
 import sodikov.weather_simple.utilit.isPermissionGranted
 
@@ -16,6 +18,12 @@ class FragmentMain : Fragment() {
     private lateinit var pLauncher: ActivityResultLauncher<String>
     private var binding: FragmentMainBinding? = null
     private val mBinding get() = binding!!
+    private val titleList = arrayListOf("Hours", "Days")
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        checkPermission()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,10 +33,20 @@ class FragmentMain : Fragment() {
         return mBinding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        checkPermission()
+
+    override fun onStart() {
+        super.onStart()
+        tabLayout()
     }
+
+    private fun tabLayout() {
+        val adapter = ViewPagerAdapter(this)
+        mBinding.viewPager.adapter = adapter
+        TabLayoutMediator(mBinding.tabLayout, mBinding.viewPager) { tab, pos ->
+            tab.text = titleList[pos]
+        }.attach()
+    }
+
 
     private fun permissionListener() {
         pLauncher = registerForActivityResult(
