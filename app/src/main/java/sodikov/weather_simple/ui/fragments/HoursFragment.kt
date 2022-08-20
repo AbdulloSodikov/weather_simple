@@ -1,25 +1,50 @@
 package sodikov.weather_simple.ui.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import sodikov.weather_simple.R
+import androidx.fragment.app.Fragment
+import sodikov.weather_simple.adapters.WeatherAdapter
+import sodikov.weather_simple.databinding.FragmentHoursBinding
+import sodikov.weather_simple.model.Weather
 
 class HoursFragment : Fragment() {
-
+    private var binding: FragmentHoursBinding? = null
+    private val mBinding get() = binding!!
+    private lateinit var adapter: WeatherAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hours, container, false)
+    ): View {
+        binding = FragmentHoursBinding.inflate(inflater, container, false)
+        return mBinding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initRecyclerView()
+    }
+
+    private fun initRecyclerView() = with(mBinding) {
+        adapter = WeatherAdapter()
+        weatherHoursRV.adapter = adapter
+        val list = arrayListOf<Weather>()
+        repeat(10){index ->
+            list.add(Weather("","","Sunny","${30+index}°C","","",""))
+        }
+        adapter.submitList(list)
+    }
+
 
     companion object {
         @JvmStatic
-        fun newInstance() =  HoursFragment()
-     }
+        fun newInstance() = HoursFragment()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
 }

@@ -1,12 +1,12 @@
 package sodikov.weather_simple.model
 
-data class DayItem(
+data class Weather(
     val city:String,
     val time:String,
     val condition:String,
-    val imageUrl:String,
     val currentTemp:String,
     val maxTemp:String,
     val minTemp:String,
-    val hours:String
+    val imageUrl:String,
+
 )

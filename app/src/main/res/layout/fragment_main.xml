@@ -91,7 +91,7 @@
                 tools:text="36.6\u00B0C" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/dayOfWeek_TV"
+                android:id="@+id/condition_TV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.8"
@@ -102,7 +102,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/temp_TV"
-                tools:text="Ҷумъа" />
+                tools:text="Солнычно" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -110,9 +110,9 @@
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/dayOfWeek_TV"
-                app:layout_constraintStart_toStartOf="@+id/dayOfWeek_TV"
-                app:layout_constraintTop_toBottomOf="@+id/dayOfWeek_TV">
+                app:layout_constraintEnd_toEndOf="@+id/condition_TV"
+                app:layout_constraintStart_toStartOf="@+id/condition_TV"
+                app:layout_constraintTop_toBottomOf="@+id/condition_TV">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/minTemp_TV"
