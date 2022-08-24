@@ -32,7 +32,7 @@ class HoursFragment : Fragment() {
         weatherHoursRV.adapter = adapter
         val list = arrayListOf<Weather>()
         repeat(10){index ->
-            list.add(Weather("","","Sunny","${30+index}°C","","",""))
+            list.add(Weather("","","Sunny","${30+index}°C","","","",""))
         }
         adapter.submitList(list)
     }

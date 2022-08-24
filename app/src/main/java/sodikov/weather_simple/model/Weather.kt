@@ -8,5 +8,5 @@ data class Weather(
     val maxTemp:String,
     val minTemp:String,
     val imageUrl:String,
-
+    val hours:String,
 )
